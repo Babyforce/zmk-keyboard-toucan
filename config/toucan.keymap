@@ -10,6 +10,16 @@
 / {
     conditional_layers { compatible = "zmk,conditional-layers"; };
 
+    behaviors {
+        msk: msk {
+            compatible = "zmk,behavior-sticky-key";
+            label = "Modifier sticky key";
+            bindings = <&sk>;
+            #binding-cells = <1>;
+            release-after-ms = <5000>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -30,7 +40,7 @@
         spec_nav {
             display-name = "SPEC_NAV";
             bindings = <
-&none  &none  &kp LC(C)  &sk LEFT_ALT  &kp ESCAPE  &none  &none  &kp PAGE_UP  &kp UP_ARROW  &kp HOME  &kp C_VOLUME_UP  &none  &none  &kp LC(A)  &kp LC(S)  &sk LCTRL  &kp TAB  &none  &none  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kt C_PLAY_PAUSE  &none  &none  &none  &kp LC(X)  &sk LEFT_WIN  &kp LC(V)  &none  &none  &kp PAGE_DOWN  &kp PRINTSCREEN  &kp END  &kp C_VOL_DN  &none  &none  &none  &none  &kp LC(BACKSPACE)  &none  &none
+&none  &none  &kp LC(W)  &msk LEFT_ALT  &kp ESCAPE  &none  &none  &kp PAGE_UP  &kp UP_ARROW  &kp HOME  &kp C_VOLUME_UP  &none  &none  &kp LC(A)  &kp LC(S)  &msk LCTRL  &kp TAB  &none  &none  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kt C_PLAY_PAUSE  &none  &none  &none  &kp LC(X)  &msk LEFT_WIN  &kp LC(V)  &none  &none  &kp PAGE_DOWN  &kp PRINTSCREEN  &kp END  &kp C_VOL_DN  &none  &none  &none  &none  &kp LC(BACKSPACE)  &none  &none
             >;
         };
 
